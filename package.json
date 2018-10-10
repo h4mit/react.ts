@@ -1,0 +1,38 @@
+{
+  "name": "react.ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/h4mit/react.ts.git"
+  },
+  "keywords": [
+    "React",
+    "Typescript"
+  ],
+  "author": "Hamid Taheri <H4mid.Taheri@gmail.com> (https://h4mit.github.io)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/h4mit/react.ts/issues"
+  },
+  "homepage": "https://github.com/h4mit/react.ts#readme",
+  "dependencies": {
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-scripts-ts": "3.1.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.5",
+    "@types/node": "^10.11.6",
+    "@types/react": "^16.4.16",
+    "@types/react-dom": "^16.0.9",
+    "typescript": "^3.1.2"
+  }
+}
