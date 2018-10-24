@@ -1,9 +1,10 @@
 import * as React from "react";
 import * as intl from 'react-intl-universal';
+import { HashRouter, Redirect, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
-import {Hello} from "./components/Hello";
 import * as $ from 'jquery';
 import * as config from 'react-global-configuration';
+import indexRoutes, { IRoute } from './routes';
 
 
 export default class App extends React.Component<any, any> {
@@ -28,12 +29,23 @@ export default class App extends React.Component<any, any> {
                     }
                 });
             }
-        ).then( () => this.setState( {
+        ).then(() => this.setState({
             init: true
         }));
     }
 
     public render() {
-        return (this.state.init && <Hello compiler="TypeScript" framework="React"/>);
+        return (this.state.init &&
+            <div>
+                <HashRouter>
+                    <Switch>
+                        {indexRoutes.map((route: IRoute, key) => {
+                            if (route.redirect)
+                                return <Redirect from={route.path}  to={route.to} key={key} />;
+                            return <Route path={route.path} component={route.component} key={key} />;
+                        })}
+                    </Switch>
+                </HashRouter>
+            </div>);
     }
 }
