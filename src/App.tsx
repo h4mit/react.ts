@@ -2,24 +2,19 @@ import * as React from "react";
 import * as intl from 'react-intl-universal';
 import axios from 'axios';
 import {Hello} from "./components/Hello";
+import * as $ from 'jquery';
+import * as config from 'react-global-configuration';
 
 
-export interface IAppProps {
-    init: string;
-}
-
-export class App extends React.Component<IAppProps, any> {
+export default class App extends React.Component<any, any> {
 
     state = {
         init: false
     };
-    constructor(props: IAppProps) {
-        super(props);
-    }
 
     public componentDidMount() {
         this.getLocale();
-
+        $('title').text(config.get('APP_NAME'));
     }
 
     private getLocale(): void {
